@@ -86,7 +86,7 @@ void RunEvents(double scale, double alpha_s, double omegacut, int N)
 	  jetscape->Add(printer);
 	  
 	  // Output
-	  auto writer= make_shared<JetScapeWriterAscii> (("./200GeV_gluon_muscale"+std::to_string(scale)+"alpha"+std::to_string(alpha_s)+"omega"+std::to_string(omegacut)+"_qgpbrick_elas_diffusion.dat").c_str());
+	  auto writer= make_shared<JetScapeWriterAscii> (("test_out.dat").c_str());
 	  jetscape->Add(writer); 
 
 	  time_t start, init; 
@@ -115,19 +115,19 @@ int main(int argc, char** argv)
   cout<<endl;
     
   double scale_list[1] = {2.}; 
-  double alpha_list[2] = {0.005, 0.32}; 
+  double alpha_list[1] = {0.32}; 
   double omegacut_list[1] = {1.}; 
   for (int i = 0; i < 1; i++)
   {
   	  
 	  double scale = scale_list[i]; 
-	  for (int j = 0; j < 2; j++)
+	  for (int j = 0; j < 1; j++)
 	  {
 	  	double alpha_s = alpha_list[j]; 
 	  	for (int k = 0; k < 1; k++)
 	  	{
 	  		double omegacut = omegacut_list[k]; 
-	  		RunEvents(scale, alpha_s, omegacut, 10000); 
+	  		RunEvents(scale, alpha_s, omegacut, 2); 
 	  	}
 	  }
   }
