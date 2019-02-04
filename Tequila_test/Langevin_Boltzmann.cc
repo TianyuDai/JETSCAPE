@@ -86,7 +86,7 @@ void RunEvents(double scale, double alpha_s, double omegacut, int N)
 	  jetscape->Add(printer);
 	  
 	  // Output
-	  auto writer= make_shared<JetScapeWriterAscii> (("test_out.dat").c_str());
+	  auto writer= make_shared<JetScapeWriterAscii> ("test_out.dat");
 	  jetscape->Add(writer); 
 
 	  time_t start, init; 
