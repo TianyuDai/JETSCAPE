@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd build
+./cutoff_eventgen --job-name $SLURM_JOB_NAME --job-id $SLURM_JOB_ID --task $SLURM_PROCID
+./average_energy --job-name $SLURM_JOB_NAME --job-id $SLURM_JOB_ID --task $SLURM_PROCID 

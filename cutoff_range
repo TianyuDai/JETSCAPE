@@ -1,0 +1,29 @@
+#!/bin/bash -l
+#SBATCH --nodes=13
+
+#SBATCH --time=02:00:00
+
+#SBATCH --qos=regular
+
+#SBATCH --mail-type ALL
+#SBATCH --mail-user td115@duke.edu
+
+#SBATCH --license=SCRATCH   #note: specify license need for the file systems your job needs, such as SCRATCH,project
+
+#SBATCH --constraint=haswell
+
+#SBATCH --workdir .
+
+#SBATCH --output /global/cscratch1/sd/%u/slurm/%x-%j.out
+#SBATCH --error  /global/cscratch1/sd/%u/slurm/%x-%j.err
+
+mkdir -p $SCRATCH/output/$SLURM_JOB_NAME-$SLURM_JOB_ID
+
+start_time="$(date -u +%s)"
+srun -n 100 run-events
+
+end_time="$(date -u +%s)"
+
+elapsed="$(($end_time-$start_time))"
+echo "Total of $elapsed seconds elapsed for process"
+

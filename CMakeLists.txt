@@ -399,11 +399,11 @@ target_link_libraries(JetScapeReader JetScapeThird GTL ${PYTHIA8_LIBRARIES})
 add_executable(Langevin_Boltzmann ./Tequila_test/Langevin_Boltzmann.cc)
 target_link_libraries(Langevin_Boltzmann JetScape )
 
-add_executable(TrentoPythia ./Tequila_test/TrentoPythia.cc)
-target_link_libraries(TrentoPythia JetScape )
+#add_executable(TrentoPythia ./Tequila_test/TrentoPythia.cc)
+#target_link_libraries(TrentoPythia JetScape )
 
-add_executable(pp ./Tequila_test/pp.cc)
-target_link_libraries(pp JetScape )
+add_executable(cutoff_eventgen ./cutoff_test/cutoff_eventgen.cc)
+target_link_libraries(cutoff_eventgen JetScape )
 
 #if(${HDF5_FOUND})
 #  add_executable(hydroFileTest ./examples/hydroFileTest.cc)
@@ -426,6 +426,9 @@ target_link_libraries(pureglue JetScape )
 
 add_executable(Leading_Parton ./Tequila_test/Leading_Parton.cc)
 target_link_libraries(Leading_Parton JetScape )
+
+add_executable(average_energy ./cutoff_test/average_energy.cc)
+target_link_libraries(average_energy JetScape )
 
 add_executable(RAA ./Tequila_test/RAA.cc)
 target_link_libraries(RAA JetScape )
@@ -459,7 +462,8 @@ endif (music AND iSS )
 # -----------------------------------------------------------
 #### copy jetscape_init.xml to build/, such that one can test xml reading in build/ directory
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/Tequila_test/Langevin_Boltzmann.xml DESTINATION ${CMAKE_BINARY_DIR}/)
-file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/Tequila_test/TrentoPythia.xml DESTINATION ${CMAKE_BINARY_DIR}/)
+#file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/Tequila_test/TrentoPythia.xml DESTINATION ${CMAKE_BINARY_DIR}/)
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/cutoff_test/cutoff_test.xml DESTINATION ${CMAKE_BINARY_DIR}/)
 
 #### copy essential files for MUSIC to build/
 if (freestream)

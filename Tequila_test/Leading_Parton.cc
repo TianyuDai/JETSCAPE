@@ -27,7 +27,7 @@ using namespace Jetscape;
 int main(int argc, char** argv)
 {
   double scale_list[1] = {1.}; 
-  double alpha_list[2] = {0.005, 0.32}; 
+  double alpha_list[1] = {0.3}; 
   double omegacut_list[1] = {2.}; 
 
   double jetpTMin = 20., jetRadius = 0.4, partonpTMin = 20.; 
@@ -46,8 +46,8 @@ int main(int argc, char** argv)
 		for (int kk = 0; kk < 1; kk++)
 		{
 		  double omegacut = omegacut_list[kk]; 
-		  auto reader=make_shared<JetScapeReaderAscii>("200GeV_gluon_muscale"+std::to_string(scale)+"alpha"+std::to_string(alpha_s)+"omega"+std::to_string(omegacut)+"_qgpbrick_elas_diffusion.dat"); 
-		  std::ofstream jet_output (("../../Result/Tequila/elas/small_coupling_test/200GeV_gluon_muscale"+std::to_string(scale)+"alpha"+std::to_string(alpha_s)+"omega"+std::to_string(omegacut)+"_qgpbrick_elas_diffusion.txt").c_str()); 
+		  auto reader=make_shared<JetScapeReaderAscii>("test_out.dat"); 
+		  std::ofstream jet_output (("200GeV_gluon_muscale"+std::to_string(scale)+"alpha"+std::to_string(alpha_s)+"omega"+std::to_string(omegacut)+"_qgpbrick_elas_diffusion.txt").c_str()); 
 
 		  while (!reader->Finished())
 			{ 

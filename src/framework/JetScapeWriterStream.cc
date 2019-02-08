@@ -38,7 +38,7 @@ template<class T>
 void JetScapeWriterStream<T>::WriteHeaderToFile()
 {
   VERBOSE(3)<<"Run JetScapeWriterStream<T>: Write header of event # "<<GetCurrentEvent()<<" ...";
-  Write(to_string(GetCurrentEvent()%10000) + " Event");
+  Write(to_string(GetCurrentEvent()%100000) + " Event");
 
   std::ostringstream oss;
   oss.str(""); oss << GetId() << "sigmaGen " << GetHeader().GetSigmaGen();
